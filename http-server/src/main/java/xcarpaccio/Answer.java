@@ -1,9 +1,9 @@
 package xcarpaccio;
 
 public class Answer {
-	public Double total;
+	public Double quote;
 
-	public Answer(double total) {
-		this.total = total;
+	public Answer(double quote) {
+		this.quote = quote;
 	}
 }
