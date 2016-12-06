@@ -36,48 +36,44 @@ public class WebConfiguration implements Configuration {
                     String method = context.method();
                     String uri = context.uri();
                     String body = context.extract(String.class);
+                    logger.log("INPUT:***************************");
                     logger.log(method + " " + uri + " " + body);
-                   
+                    Answer answer=null;
                     Order order=null;
+                    logger.log("*****************");
 					try {
+						
 						order = context.extract(Order.class);
+						
+						answer=calculateQuote(order);
 					} catch (Exception e) {
 						e.printStackTrace();
+						logger.log("Unserialized order: " + order);
 						return new Payload(400);
 					}
                     
-                    logger.log("Unserialized order: " + order);
-
-                    // Use the following line to choose not to handle an order
-                    //return new Payload("application/json", "", 200);
-
-                    // Use the following lines to return a quote:
-                    //Answer answer = new Answer(total);
-                    Answer answer=calculateQuote(order);
+                    
                     return new Payload("application/json", answer, 200);
                 }))
         ;
     }
 
-	private Answer calculateQuote(Order order) throws IOException 
+	private Answer calculateQuote(Order order) throws Exception 
 	{
 		Map<String,Nation> mapNation=getMapNation();
-		//System.out.println(mapNation.get(order.country).getValue());
 		Answer result=new Answer(42.0d);
 		double dCountry=mapNation.get(order.country).getValue();
 		double cover=getCoverValue(order.cover);
 		double ageRisk=getAgeRisk(order);
 		double optionsTotal=getToalOptions(order.options);
-		System.out.println(dCountry);
-		System.out.println(cover);
-		System.out.println(ageRisk);
-		System.out.println(optionsTotal);
-		
-		
-		//(cover*country*sum(ageRIsk)*nbDays)+options
+		logger.log("country param-->"+dCountry);
+		logger.log("cover param-->"+cover);
+		logger.log("age risk param (sum)-->"+ageRisk);
+		logger.log("total option (sum)-->"+ optionsTotal);
 		long nbDays=getnbDays(order);
-		System.out.println(nbDays);
-		
+		if(nbDays<7)
+			throw new Exception("first week is  indivisible");
+		logger.log("NbDays param-->"+nbDays);
 		double app=(cover*dCountry*ageRisk*romanNumb(nbDays))+optionsTotal;
 		result=new Answer(app);
 		return result; 
@@ -169,6 +165,7 @@ public class WebConfiguration implements Configuration {
 		for (Nation nation : myNation) {
 			result.put(nation.getCode(), nation);
 		}
+		logger.log("Map size is-->"+result.size());
 		return result;
 	}
 	
