@@ -39,17 +39,18 @@ public class MyFluentHttpServerTest {
                 statusCode(204)
         ;
     }
-
+    
     @Test public void
     should_post_an_order() {
         given().
                 contentType(JSON).
-                body("{\"prices\":[31.01],\"quantities\":[8],\"names\":[\"Tea\"],\"country\":\"IT\",\"reduction\":\"STANDARD\"}").
+                body("{\"country\": \"PL\",\"departureDate\": \"2016-12-06\", \"returnDate\":[\"2016-12-09\"],\"travellerAges\":[32,39],\"cover\":\"BASIC\"}").
         when().
-                post("/order").
+                post("/quote").
         then().
                 statusCode(200).
-                body(equalTo(""))
+                body(equalTo("{\"quote\":42.0}"))
         ;
     }
+    
 }
