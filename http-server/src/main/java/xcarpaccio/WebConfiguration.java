@@ -1,21 +1,13 @@
 package xcarpaccio;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.CharBuffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
-import org.yaml.snakeyaml.reader.ReaderException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -25,7 +17,11 @@ import net.codestory.http.routes.Routes;
 
 public class WebConfiguration implements Configuration {
 
-    private final Logger logger = new Logger();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1655485158255384468L;
+	private final Logger logger = new Logger();
 
     @Override
     public void configure(Routes routes) {
@@ -46,7 +42,6 @@ public class WebConfiguration implements Configuration {
 					try {
 						order = context.extract(Order.class);
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 						return new Payload(400);
 					}
@@ -85,13 +80,11 @@ public class WebConfiguration implements Configuration {
 		
 		double app=(cover*dCountry*ageRisk*romanNumb(nbDays))+optionsTotal;
 		result=new Answer(app);
-		// TODO Auto-generated method stub
 		return result; 
 	}
 
 	private double romanNumb(long nbDays) 
 	{
-		// TODO Auto-generated method stub
 		return 1;
 	}
 
@@ -100,8 +93,6 @@ public class WebConfiguration implements Configuration {
 		
 		long diff = order.returnDate.getTime()-order.departureDate.getTime();
 		long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-		
-		// TODO Auto-generated method stub
 		return days;
 	}
 
@@ -112,7 +103,6 @@ public class WebConfiguration implements Configuration {
 			double app=getValueOptions(string);
 			result=result+app;
 		}
-		// TODO Auto-generated method stub
 		return result;
 	}
 
@@ -127,8 +117,6 @@ public class WebConfiguration implements Configuration {
 			return 25;
 		if(string.equalsIgnoreCase("YOGA"))
 			return -3;
-		
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -136,12 +124,11 @@ public class WebConfiguration implements Configuration {
 		
 		double result=0;
 		List<String> persons = order.travellerAges;
-		for (Iterator iterator = persons.iterator(); iterator.hasNext();) {
-			String string = (String) iterator.next();
+		for (String string : persons) {
 			double dApp=getRisk(string);
 			result=result+dApp;
 		}
-		// TODO Auto-generated method stub
+		
 		
 		return result;
 	}
@@ -157,7 +144,6 @@ public class WebConfiguration implements Configuration {
 			return 1.0d;
 		if(i>65)
 			return 1.5d;
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -169,9 +155,6 @@ public class WebConfiguration implements Configuration {
 			return 4.2d;
 		if (cover.equalsIgnoreCase("EXTRA"))
 			return 2.4d;
-		
-		
-	// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -181,17 +164,11 @@ public class WebConfiguration implements Configuration {
 		HashMap<String, Nation> result=new HashMap<String,Nation>();
 		byte[] jsonData = Files.readAllBytes(Paths.get("countries.json"));
 		
-		//System.out.println(new String(jsonData));
 		Nation[] nationsArr=mapper.readValue(jsonData, Nation[].class);
 		List<Nation> myNation=Arrays.asList(nationsArr); 
-		for (Iterator iterator = myNation.iterator(); iterator.hasNext();) {
-			Nation nation = (Nation) iterator.next();
+		for (Nation nation : myNation) {
 			result.put(nation.getCode(), nation);
-			
 		}
-		//List<Nation> listNation=mapper.readValue(src, valueType)
-		// TODO Auto-generated method stub
-		//System.out.println(result.size());
 		return result;
 	}
 	
