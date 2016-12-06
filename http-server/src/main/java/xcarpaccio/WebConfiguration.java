@@ -85,7 +85,7 @@ public class WebConfiguration implements Configuration {
 	private double romanNumb(long nbDays) 
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	private long getnbDays(Order order) {
