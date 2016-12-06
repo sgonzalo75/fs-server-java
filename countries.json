@@ -1,0 +1,227 @@
+[
+    {
+        "name": "Estonia",
+        "code": "EE",
+	"value": 1.3
+    },
+    {
+        "name": "Luxembourg",
+        "code": "LU",
+	"value": 1.3
+    },
+    {
+        "name": "Greece",
+        "code": "GR",
+	"value": 0.6
+    },
+    {
+        "name": "Dominican Republic",
+        "code": "DO",
+	"value": 1.3
+    },
+    {
+        "name": "Italy",
+        "code": "IT",
+	"value": 1.2
+    },
+    {
+        "name": "Bulgaria",
+        "code": "BG",
+	"value": 1.1
+    },
+    {
+        "name": "Isle of Man",
+        "code": "IM",
+	"value": 1.2
+    },
+    {
+        "name": "Heard island and Macdonald Island",
+        "code": "HM",
+	"value": 0.7
+    },
+    {
+        "name": "Sweden",
+        "code": "SE",
+	"value": 1.2
+    },
+    {
+        "name": "United Kingdom of Great",
+        "code": "GB",
+	"value": 1.1
+    },
+    {
+        "name": "Panama",
+        "code": "PA",
+	"value": 1.6
+    },
+    {
+        "name": "Pitcairn",
+        "code": "PN",
+	"value": 1.2
+    },
+    {
+        "name": "Qatar",
+        "code": "QA",
+	"value": 1.6
+    },
+    {
+        "name": "Romania",
+        "code": "RO",
+	"value": 1.3
+    },
+    {
+        "name": "Thailand",
+        "code": "TH",
+	"value": 1.6
+    },
+    {
+        "name": "Democratic People's of Republic Korea",
+        "code": "KP",
+	"value": 6.9
+    },
+    {
+        "name": "Lithuania",
+        "code": "LT",
+	"value": 0.7
+    },
+    {
+        "name": "Uruguay",
+        "code": "UY",
+	"value": 1.6
+    },
+    {
+        "name": "Finland",
+        "code": "FI",
+	"value": 0.8
+    },
+    {
+        "name": "Croatia",
+        "code": "HR",
+	"value": 1.3
+    },
+    {
+        "name": "Latvia",
+        "code": "LV",
+	"value": 0.6
+    },
+    {
+        "name": "Ireland",
+        "code": "IE",
+	"value": 1.1
+    },
+    {
+        "name": "Macedonia",
+        "code": "MK",
+	"value": 1.6
+    },
+    {
+        "name": "France",
+        "code": "FR",
+	"value": 1.0
+    },
+    {
+        "name": "Malta",
+        "code": "MT",
+	"value": 1.2
+    },
+    {
+        "name": "Portugal",
+        "code": "PT",
+	"value": 0.5
+    },
+    {
+        "name": "Swaziland",
+        "code": "SZ",
+	"value": 3.7
+    },
+    {
+        "name": "Netherlands",
+        "code": "NL",
+	"value": 0.7
+    },
+    {
+        "name": "Egypt",
+        "code": "EG",
+	"value": 0.9
+    },
+    {
+        "name": "Mexico",
+        "code": "MX",
+	"value": 1.6
+    },
+    {
+        "name": "Cyprus",
+        "code": "CY",
+	"value": 1.6
+    },
+    {
+        "name": "Belgium",
+        "code": "BE",
+	"value": 0.9
+    },
+    {
+        "name": "Spain",
+        "code": "ES",
+	"value": 1.1
+    },
+    {
+        "name": "Chad",
+        "code": "TD",
+	"value": 1.3
+    },
+    {
+        "name": "Wallis and Fatuna",
+        "code": "WF",
+	"value": 1.5
+    },
+    {
+        "name": "Germany",
+        "code": "GE",
+	"value": 0.8
+    },
+    {
+        "name": "Slovakia",
+        "code": "SK",
+	"value": 0.7
+    },
+    {
+        "name": "Austria",
+        "code": "AT",
+	"value": 0.9
+    },
+    {
+        "name": "South Africa",
+        "code": "ZA",
+	"value": 1.6
+    },
+    {
+        "name": "Czechia",
+        "code": "CZ",
+	"value": 1.2
+    },
+    {
+        "name": "Denmark",
+        "code": "DK",
+	"value": 1.2
+    },
+    {
+        "name": "Slovenia",
+        "code": "SI",
+	"value": 0.8
+    },
+    {
+        "name": "Poland",
+        "code": "PL",
+	"value": 1.4
+    },
+    {
+        "name": "Hungary",
+        "code": "HU",
+	"value": 1.1
+    },
+    {
+        "name": "Taiwan, Province of China",
+        "code": "TW",
+	"value": 1.6
+    }
+]
