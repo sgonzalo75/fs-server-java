@@ -73,8 +73,15 @@ public class WebConfiguration implements Configuration {
 		double cover=getCoverValue(order.cover);
 		double ageRisk=getAgeRisk(order);
 		double optionsTotal=getToalOptions(order.options);
+		System.out.println(dCountry);
+		System.out.println(cover);
+		System.out.println(ageRisk);
+		System.out.println(optionsTotal);
+		
+		
 		//(cover*country*sum(ageRIsk)*nbDays)+options
 		long nbDays=getnbDays(order);
+		System.out.println(nbDays);
 		
 		double app=(cover*dCountry*ageRisk*romanNumb(nbDays))+optionsTotal;
 		result=new Answer(app);
