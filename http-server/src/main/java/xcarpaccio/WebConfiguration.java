@@ -21,8 +21,6 @@ public class WebConfiguration implements Configuration {
 	 * 
 	 */
 	private static final long serialVersionUID = -1655485158255384468L;
-	private final Logger logger = new Logger();
-
     @Override
     public void configure(Routes routes) {
         routes.
@@ -42,21 +40,26 @@ public class WebConfiguration implements Configuration {
                     Order order=null;
                     logger.log("*****************");
 					try {
-						
+
 						order = context.extract(Order.class);
-						
+
 						answer=calculateQuote(order);
+
+                        CrossSeller crossSeller = new CrossSeller();
+						answer.addOffers(crossSeller.getCrossSellingOpportunities(order));
 					} catch (Exception e) {
 						e.printStackTrace();
 						logger.log("Unserialized order: " + order);
 						return new Payload(400);
 					}
-                    
-                    
+
+
                     return new Payload("application/json", answer, 200);
                 }))
         ;
     }
+
+    private final Logger logger = new Logger();
 
 	private Answer calculateQuote(Order order) throws Exception 
 	{

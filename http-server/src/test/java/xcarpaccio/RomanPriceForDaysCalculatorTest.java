@@ -53,6 +53,25 @@ public class RomanPriceForDaysCalculatorTest {
 
     }
 
+    public void test_empty_string()  {
+        Integer days = 0;
+
+        Double romanPriceForDays = priceCalculator.getRomanPriceForDays(days);
+
+        assertThat(romanPriceForDays, is( 0.0));
+
+    }
+
+    @Test
+    public void test_null()  {
+        Integer days = null;
+
+        Double romanPriceForDays = priceCalculator.getRomanPriceForDays(days);
+
+        assertThat(romanPriceForDays, is( 0.0));
+
+    }
+
     @Test
     public void test_7()  {
         Integer days = 7;
